@@ -19,7 +19,7 @@
     "react-dom": "^16.6.0",
     "react-sublime-video": "^0.2.5",
     "serve": "^11.0.1",
-    "umi": "^2.6.17"
+    "umi": "^2.7.6"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

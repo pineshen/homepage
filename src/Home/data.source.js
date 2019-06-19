@@ -22,7 +22,7 @@ export const Nav00DataSource = {
         name: 'item2',
         a: {
           children: 'Project',
-          href: 'https://118.25.182.62/index.html',
+          href: 'http://118.25.182.62/mall.html',
           target: '_black',
         },
       },

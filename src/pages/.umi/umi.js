@@ -1,13 +1,14 @@
 import './polyfills';
-import '@tmp/initHistory';
+import '@tmp/history';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 
 // runtime plugins
-window.g_plugins = require('umi/_runtimePlugin');
-window.g_plugins.init({
+const plugins = require('umi/_runtimePlugin');
+window.g_plugins = plugins;
+plugins.init({
   validKeys: ['patchRoutes','render','rootContainer','modifyRouteProps','onRouteChange',],
 });
 
@@ -15,7 +16,7 @@ window.g_plugins.init({
 
 // render
 let oldRender = () => {
-  const rootContainer = window.g_plugins.apply('rootContainer', {
+  const rootContainer = plugins.apply('rootContainer', {
     initialValue: React.createElement(require('./router').default),
   });
   ReactDOM.render(
@@ -23,7 +24,7 @@ let oldRender = () => {
     document.getElementById('root'),
   );
 };
-const render = window.g_plugins.compose('render', { initialValue: oldRender });
+const render = plugins.compose('render', { initialValue: oldRender });
 
 const moduleBeforeRendererPromises = [];
 
